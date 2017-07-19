@@ -1,20 +1,32 @@
 <div class="container-fluid">
 
-  <div>
-    <button type="button" class="randomArticle btn btn-primary">Click here to open a random Wikipedia article</button>
-  </div>
+  <h1 class="text-center">Wikipedia Viewer</h1>
 
   <br><br>
-  
-  <div>
-    <form>
-      <input type="text" placeholder="Enter a search term" class="userInput"/>
-      <input type="button" value="Search" class="articleSearch btn btn-info"/>
-    </form>
+
+  <div class="row">
+    <div class="mx-auto">
+      <form>
+        <input type="text" class="userInput" placeholder="Enter a search term"/>
+        <button type="button" class="articleSearch btn btn-info"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+      </form>
+    </div>
   </div>
 
   <br>
 
-  <div class="searchResults"></div>
+  <div class="row">
+    <div class="mx-auto">
+      <button type="button" class="randomArticle btn btn-primary">Click for a random article</button>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="row">
+    <div clas="mx-auto">
+      <div class="searchResults"></div>
+    </div>
+  </div>
 
 </div>
