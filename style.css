@@ -1,7 +1,25 @@
+body {
+  font-family: Verdana, sans-serif;
+}
+
 .randomArticle {
   margin: 10px;
 }
 
 .userInput {
-  width: 300px;
+  width: 330px;
+  display: block;
 }
+
+.subtitle {
+  font-style: italic;
+}
+
+.searchResults {
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+.resultContainers:hover {
+  background-color: #e74c3c;
+} 

@@ -1,32 +1,48 @@
-<div class="container-fluid">
+<!DOCTYPE html>
+<html lang="en">
 
-  <h1 class="text-center">Wikipedia Viewer</h1>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Wikipedia_Viewer</title>
+</head>
 
-  <br><br>
+<body>
 
-  <div class="row">
-    <div class="mx-auto">
-      <form>
-        <input type="text" class="userInput" placeholder="Enter a search term"/>
-        <button type="button" class="articleSearch btn btn-info"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
-      </form>
+  <div class="container-fluid">
+
+    <h1 class="text-center">Wikipedia Viewer</h1>
+    <h5 class="text-center subtitle">A Wikipedia search tool</h5>
+
+    <br><br>
+
+    <div class="row">
+      <div class="mx-auto">
+        <form>
+          <input type="text" class="userInput" placeholder="Enter a search term"/>
+          <button type="button" class="articleSearch btn btn-info">
+            <i class="fa fa-search" aria-hidden="true"></i> Search
+          </button>
+          <button type="button" class="randomArticle btn btn-primary">
+            Click for a random article
+          </button>
+        </form>
+      </div>
     </div>
+
+    <br><br>
+
+    <div class="row">
+        <div class="searchResults"></div>
+    </div>
+
   </div>
 
-  <br>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="javascript.js"></script>
 
-  <div class="row">
-    <div class="mx-auto">
-      <button type="button" class="randomArticle btn btn-primary">Click for a random article</button>
-    </div>
-  </div>
+</body>
 
-  <br><br>
-
-  <div class="row">
-    <div clas="mx-auto">
-      <div class="searchResults"></div>
-    </div>
-  </div>
-
-</div>
+</html>
