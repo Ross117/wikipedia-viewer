@@ -15,7 +15,7 @@ $(".articleSearch").on("click", () => {
 
   $.ajax({
     // use a proxy server to prevent CORS error
-    url: "https://thingproxy.freeboard.io/fetch/https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search="
+    url: "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search="
     + $userInput,
     success: (json) => {
 
