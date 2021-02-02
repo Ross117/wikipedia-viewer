@@ -6,6 +6,11 @@ $(".randomArticle").on("click", () => {
   window.open(link);
 });
 
+function clearSearchResults() {
+  "use strict";
+
+  $(".searchResults").html("");
+}
 
 // request search results from the MediaWiki API based on user input
 $(".articleSearch").on("click", () => {
@@ -15,43 +20,37 @@ $(".articleSearch").on("click", () => {
 
   $.ajax({
     // use a proxy server to prevent CORS error
-    url: "https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search="
-    + $userInput,
-    success: (json) => {
-
+    url:
+      "https://cors-anywhere.herokuapp.com/http://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=" +
+      $userInput,
+    success: (data) => {
       const $searchResults = $(".searchResults");
-      //an array of titles returned by the API
-      const titles = json[1];
-      //an array of descriptions returned by the API
-      const descriptions = json[2];
-      //an array of links returned by the API
-      const links = json[3];
+      const pageResults = data.query.search;
 
       //clear any existing search results on the page
       clearSearchResults();
 
       // append the links, titles and descriptions of the search results to the page
-      links.map((val, index) => {
-        $searchResults.append("<div class='card resultContainers'><h5><a href='"
-        + val + "' >" + titles[index] + "</a></h5><p>" + descriptions[index]
-        + "</p></div><br>");
+      pageResults.forEach((result) => {
+        $searchResults.append(
+          `<div class="card resultContainers"
+            <h5>
+              <a href="https://en.wikipedia.org/wiki/${result.title}" target="_blank">
+                ${result.title}
+              </a>
+            </h5>
+            <p> 
+              ${result.snippet}
+            </p>
+          </div>
+          <br>`
+        );
       });
-
     },
     error: () => {
-
       const $searchResults = $(".searchResults");
       clearSearchResults();
       $searchResults.append("<p>Sorry, an error has occurred.</p>");
-    }
+    },
   });
-
 });
-
-//clear any existing search results on the page
-function clearSearchResults () {
-  "use strict";
-
-  const $searchResults = $(".searchResults");
-  $(".searchResults").html("");
-}
